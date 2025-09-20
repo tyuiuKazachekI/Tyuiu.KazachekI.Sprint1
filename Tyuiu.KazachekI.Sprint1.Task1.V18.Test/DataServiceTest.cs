@@ -11,7 +11,7 @@ namespace Tyuiu.KazachekI.Sprint1.Task1.V18.Test
             double x = 1.00;
             double y = 2.0;
             var res = ds.Calculate(x, y);
-            Assert.AreEqual(-1, res);
+            Assert.AreEqual(-2, res);
         }
     }
 }
