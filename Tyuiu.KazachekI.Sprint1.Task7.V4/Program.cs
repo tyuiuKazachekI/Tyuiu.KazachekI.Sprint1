@@ -22,23 +22,38 @@ namespace Tyuiu.KazachekI.Sprint1.Task7.V4
             Console.WriteLine("* Написать программу, которая вычисляет математическое выражение по       *");
             Console.WriteLine("* исходным значениям данных, вводимых пользователем. Ответ округлите до   *");
             Console.WriteLine("* 3 знаков после запятой.                                                 *");
-            Console.WriteLine("* z = ln(y - √x) * (x - y/(x + x²/4))                                    *");
+            Console.WriteLine("* z = ln|(y - √|x|)(x - y/(x + x²/4))|                                   *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            Console.Write("Введите значение x: ");
-            double x = Convert.ToDouble(Console.ReadLine());
+            try
+            {
+                Console.Write("Введите значение x: ");
+                double x = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Введите значение y: ");
-            double y = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Введите значение y: ");
+                double y = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
-            Console.WriteLine("***************************************************************************");
+                Console.WriteLine("***************************************************************************");
+                Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
+                Console.WriteLine("***************************************************************************");
 
-            double result = ds.Calculate(x, y);
-            Console.WriteLine($"z = {result}");
+                double result = ds.Calculate(x, y);
+                Console.WriteLine($"z = {result}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Ошибка: Введены некорректные данные. Введите числа.");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Произошла ошибка: {ex.Message}");
+            }
 
             Console.ReadLine();
         }
