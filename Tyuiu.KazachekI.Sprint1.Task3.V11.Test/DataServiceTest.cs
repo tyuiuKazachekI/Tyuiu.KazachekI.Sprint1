@@ -7,20 +7,20 @@ namespace Tyuiu.KazachekI.Sprint1.Task3.V11.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void ValidGetSumSeries()
+        public void ValidTriangleArea()
         {
             DataService ds = new DataService();
 
-            int value = 2;
-            int startValue = 1;
-            int stopValue = 3;
+            double x1 = -2;
+            double y1 = 5;
+            double x2 = 1;
+            double y2 = 7;
+            double x3 = 5;
+            double y3 = -3;
 
-            double wait = 2.0 / 1 + 2.0 / 4 + 2.0 / 9; 
-            wait = Math.Round(wait, 3);
+            double res = ds.TriangleArea(x1, y1, x2, y2, x3, y3);
 
-            double res = ds.GetSumSeries(value, startValue, stopValue);
-
-            Assert.AreEqual(wait, res);
+            Assert.AreEqual(19.00, res);
         }
     }
 }

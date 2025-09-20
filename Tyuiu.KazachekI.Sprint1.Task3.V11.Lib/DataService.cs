@@ -1,27 +1,15 @@
 ﻿using System;
-using tyuiu.cources.programming.interfaces;
-using tyuiu.cources.programming.interfaces.Sprint3;
+using tyuiu.cources.programming.interfaces.Sprint1;
 
 namespace Tyuiu.KazachekI.Sprint1.Task3.V11.Lib
 {
-    public class DataService : ISprint3Task3V11
+    public class DataService : ISprint1Task3V11
     {
-        public double GetSumSeries(int value, int startValue, int stopValue)
+        public double TriangleArea(double x1, double y1, double x2, double y2, double x3, double y3)
         {
-            double sum = 0;
+            double area = Math.Abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
 
-            for (int i = startValue; i <= stopValue; i++)
-            {
-
-                sum += (double)value / (i * i);
-            }
-
-            return Math.Round(sum, 3);
+            return Math.Round(area, 3);
         }
-
-       public string ReplaceCharOnNum(string value, char replaceable, char replacement)
-      {
-           throw new NotImplementedException();
-       }
     }
 }
